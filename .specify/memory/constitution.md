@@ -1,9 +1,9 @@
 <!--
 Sync Impact Report:
-- Version change: 0.0.0 -> 1.0.0
-- Modified principles: Established 7 core principles based on Spec-Driven Development for AI Textbooks.
-- Added sections: Architecture & Technology Stack, Content Requirements.
-- Templates requiring updates: N/A (Initial Setup).
+- Version change: 1.0.0 -> 1.1.0
+- Modified principles: Added VIII (Bounded Knowledge) and IX (Zero Secrets).
+- Added sections: Directory Standard under Architecture.
+- Templates requiring updates: N/A.
 -->
 # AI-Native Textbook for Physical AI & Humanoid Robotics Constitution
 
@@ -30,6 +30,12 @@ Prefer clarity and pedagogy over marketing language. Assume students know AI bas
 ### VII. Canonical Formats
 Docusaurus Markdown is the canonical content format. All content generation and management must adhere to this standard.
 
+### VIII. Bounded Knowledge
+The RAG system must be strictly grounded. It shall ONLY answer questions based on the content available in the textbook repository. It must refuse to hallucinate or answer unrelated queries.
+
+### IX. Zero Secrets in Code
+No secrets (API keys, DB credentials) shall ever be committed to the repository. Strict usage of `.env` files and `.gitignore` is mandatory.
+
 ## Architecture & Technology Stack
 
 **Target Architecture:**
@@ -41,6 +47,12 @@ The project is executed via sequential, isolated specs:
 5. **User Auth:** Authentication & Personalization (optional/bonus).
 6. **Translation:** Urdu translation (optional/bonus).
 7. **Deployment:** GitHub Pages / Vercel.
+
+**Directory Standard:**
+- `apps/web`: Docusaurus Static Site.
+- `apps/api`: FastAPI Backend for RAG/Agents.
+- `content/modules`: Canonical Markdown/MDX Source.
+- `scripts`: Utility scripts for ingestion/deploy.
 
 **Required Stack:**
 - **Frontend/Static Site:** Docusaurus (React/Markdown).
@@ -74,4 +86,4 @@ The constitution governs all future specs, plans, and tasks. It supersedes indiv
 - **Compliance:** All generated specs must reference these principles.
 - **Validation:** `/sp.specify` calls must align with the architecture defined here.
 
-**Version**: 1.0.0 | **Ratified**: 2025-12-16 | **Last Amended**: 2025-12-16
+**Version**: 1.1.0 | **Ratified**: 2025-12-16 | **Last Amended**: 2025-12-16
