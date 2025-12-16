@@ -29,5 +29,5 @@ create a new private repo on github and push a intial project
 
 # Response
 
-Created private repository `Ai_book` at `https://github.com/Muzamil-Ai-Dev/Ai_book`.
-Initialized remote `origin` and pushed the `master` branch successfully.
+Created private repository `Ai_book` at `https://github.com/Muzamil-Ai-Dev/Ai_book`. Initialized
+remote `origin` and pushed the `master` branch successfully.

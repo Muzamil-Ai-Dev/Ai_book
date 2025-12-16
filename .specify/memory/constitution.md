@@ -5,41 +5,60 @@ Sync Impact Report:
 - Added sections: Directory Standard under Architecture.
 - Templates requiring updates: N/A.
 -->
+
 # AI-Native Textbook for Physical AI & Humanoid Robotics Constitution
 
 ## Core Principles
 
 ### I. Spec-Driven Everything
-Everything is spec-driven — infrastructure, writing, AI agents, and deployment. No ad-hoc development or manual configuration is permitted without an accompanying spec.
+
+Everything is spec-driven — infrastructure, writing, AI agents, and deployment. No ad-hoc
+development or manual configuration is permitted without an accompanying spec.
 
 ### II. Content as First-Class Artifact
-Content creation (chapters) is treated as a first-class artifact. It must be explicitly specified, written (not placeholders), and verified like code.
+
+Content creation (chapters) is treated as a first-class artifact. It must be explicitly specified,
+written (not placeholders), and verified like code.
 
 ### III. Atomic & Composable Specs
-Specs are small, composable, and independently executable. No spec may mix concerns (e.g., infrastructure ≠ content ≠ AI ≠ auth). Each spec must do one thing well.
+
+Specs are small, composable, and independently executable. No spec may mix concerns (e.g.,
+infrastructure ≠ content ≠ AI ≠ auth). Each spec must do one thing well.
 
 ### IV. Verifiable Outputs
-Every spec must produce verifiable outputs. This includes compiled sites, passing tests, reachable APIs, or rendered chapters. If it cannot be verified, it is not done.
+
+Every spec must produce verifiable outputs. This includes compiled sites, passing tests, reachable
+APIs, or rendered chapters. If it cannot be verified, it is not done.
 
 ### V. Incremental Deployability
-The system must be incrementally deployable at each major milestone. A working version of the book (even if partial) should be deployable after the platform spec, content spec, etc.
+
+The system must be incrementally deployable at each major milestone. A working version of the book
+(even if partial) should be deployable after the platform spec, content spec, etc.
 
 ### VI. Pedagogical Clarity
-Prefer clarity and pedagogy over marketing language. Assume students know AI basics but are beginners in robotics. The goal is education, not hype.
+
+Prefer clarity and pedagogy over marketing language. Assume students know AI basics but are
+beginners in robotics. The goal is education, not hype.
 
 ### VII. Canonical Formats
-Docusaurus Markdown is the canonical content format. All content generation and management must adhere to this standard.
+
+Docusaurus Markdown is the canonical content format. All content generation and management must
+adhere to this standard.
 
 ### VIII. Bounded Knowledge
-The RAG system must be strictly grounded. It shall ONLY answer questions based on the content available in the textbook repository. It must refuse to hallucinate or answer unrelated queries.
+
+The RAG system must be strictly grounded. It shall ONLY answer questions based on the content
+available in the textbook repository. It must refuse to hallucinate or answer unrelated queries.
 
 ### IX. Zero Secrets in Code
-No secrets (API keys, DB credentials) shall ever be committed to the repository. Strict usage of `.env` files and `.gitignore` is mandatory.
+
+No secrets (API keys, DB credentials) shall ever be committed to the repository. Strict usage of
+`.env` files and `.gitignore` is mandatory.
 
 ## Architecture & Technology Stack
 
-**Target Architecture:**
-The project is executed via sequential, isolated specs:
+**Target Architecture:** The project is executed via sequential, isolated specs:
+
 1. **Book Platform:** Docusaurus setup.
 2. **Book Content:** Chapter writing and assets.
 3. **AI Retrieval:** RAG Chatbot (FastAPI, Qdrant, OpenAI).
@@ -49,19 +68,23 @@ The project is executed via sequential, isolated specs:
 7. **Deployment:** GitHub Pages / Vercel.
 
 **Directory Standard:**
+
 - `apps/web`: Docusaurus Static Site.
 - `apps/api`: FastAPI Backend for RAG/Agents.
 - `content/modules`: Canonical Markdown/MDX Source.
 - `scripts`: Utility scripts for ingestion/deploy.
 
 **Required Stack:**
+
 - **Frontend/Static Site:** Docusaurus (React/Markdown).
-- **AI/Backend:** FastAPI, OpenAI Agents/ChatKit, Qdrant Cloud (Free Tier), Neon Serverless Postgres.
+- **AI/Backend:** FastAPI, OpenAI Agents/ChatKit, Qdrant Cloud (Free Tier), Neon Serverless
+  Postgres.
 - **Bonus:** better-auth for authentication.
 
 ## Content Requirements
 
 **Mandatory Modules:**
+
 - Introduction to Physical AI & Embodied Intelligence
 - ROS 2 Fundamentals
 - Gazebo & Unity Simulation
@@ -71,8 +94,8 @@ The project is executed via sequential, isolated specs:
 - Conversational Robotics
 - Capstone Project Guidance
 
-**Chapter Structure:**
-Each chapter MUST include:
+**Chapter Structure:** Each chapter MUST include:
+
 - Learning objectives
 - Concept explanations
 - Diagrams or visual descriptions
@@ -81,7 +104,9 @@ Each chapter MUST include:
 
 ## Governance
 
-The constitution governs all future specs, plans, and tasks. It supersedes individual spec preferences.
+The constitution governs all future specs, plans, and tasks. It supersedes individual spec
+preferences.
+
 - **Amendments:** Must be documented via a version bump and rationale.
 - **Compliance:** All generated specs must reference these principles.
 - **Validation:** `/sp.specify` calls must align with the architecture defined here.

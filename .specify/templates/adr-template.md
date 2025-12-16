@@ -1,6 +1,7 @@
 # ADR-{{ID}}: {{TITLE}}
 
-> **Scope**: Document decision clusters, not individual technology choices. Group related decisions that work together (e.g., "Frontend Stack" not separate ADRs for framework, styling, deployment).
+> **Scope**: Document decision clusters, not individual technology choices. Group related decisions
+> that work together (e.g., "Frontend Stack" not separate ADRs for framework, styling, deployment).
 
 - **Status:** Proposed | Accepted | Superseded | Rejected
 - **Date:** {{DATE_ISO}}
@@ -53,4 +54,5 @@
 - Feature Spec: {{SPEC_LINK}}
 - Implementation Plan: {{PLAN_LINK}}
 - Related ADRs: {{RELATED_ADRS}}
-- Evaluator Evidence: {{EVAL_NOTES_LINK}} <!-- link to eval notes/PHR showing graders and outcomes -->
+- Evaluator Evidence: {{EVAL_NOTES_LINK}}
+  <!-- link to eval notes/PHR showing graders and outcomes -->

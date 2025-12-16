@@ -1,0 +1,15 @@
+# Node
+node_modules/
+dist/
+build/
+coverage/
+*.log
+.env*
+.DS_Store
+
+# Docusaurus
+.docusaurus/
+.cache-loader/
+
+# Spec
+.specify/tmp/

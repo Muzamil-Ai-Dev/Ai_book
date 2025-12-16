@@ -1,0 +1,30 @@
+{
+  "name": "ai-book-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build -w apps/web",
+    "start": "npm run start -w apps/web",
+    "deploy": "npm run deploy -w apps/web"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muzamil-Ai-Dev/Ai_book.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Muzamil-Ai-Dev/Ai_book/issues"
+  },
+  "homepage": "https://github.com/Muzamil-Ai-Dev/Ai_book#readme",
+  "devDependencies": {
+    "prettier": "^3.7.4",
+    "prettier-plugin-sh": "^0.18.0"
+  }
+}

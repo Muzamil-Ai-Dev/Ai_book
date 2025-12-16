@@ -25,11 +25,10 @@ tests: []
 
 # Prompt
 
-/sp.constitution
-... [Full prompt as provided by user] ...
+/sp.constitution ... [Full prompt as provided by user] ...
 
 # Response
 
-Updated `.specify/memory/constitution.md` to Version 1.0.0.
-Defined 7 core principles including "Spec-Driven Everything" and "Content as First-Class Artifact".
-Established the target architecture (Docusaurus + RAG Stack) and content requirements.
+Updated `.specify/memory/constitution.md` to Version 1.0.0. Defined 7 core principles including
+"Spec-Driven Everything" and "Content as First-Class Artifact". Established the target architecture
+(Docusaurus + RAG Stack) and content requirements.

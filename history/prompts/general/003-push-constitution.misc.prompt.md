@@ -31,8 +31,8 @@ ok push the changes on github
 
 # Response
 
-Successfully committed and pushed changes to `origin/master`.
-Commit: `docs: ratify constitution v1.0.0 for AI-Native Textbook project`
-Files synced:
+Successfully committed and pushed changes to `origin/master`. Commit:
+`docs: ratify constitution v1.0.0 for AI-Native Textbook project` Files synced:
+
 - Constitution v1.0.0
 - PHR 001 and 002

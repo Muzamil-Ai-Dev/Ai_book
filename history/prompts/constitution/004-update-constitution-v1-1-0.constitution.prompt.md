@@ -25,14 +25,12 @@ tests: []
 
 # Prompt
 
-Update to v1.1.0.
-Add Principle VIII: Bounded Knowledge (RAG grounded only in book).
-Add Principle IX: Zero Secrets (strict .env usage).
-Define Directory Standard: apps/web, apps/api, content/modules.
+Update to v1.1.0. Add Principle VIII: Bounded Knowledge (RAG grounded only in book). Add Principle
+IX: Zero Secrets (strict .env usage). Define Directory Standard: apps/web, apps/api,
+content/modules.
 
 # Response
 
-Updated `.specify/memory/constitution.md` to Version 1.1.0.
-Added "Bounded Knowledge" to restrict AI scope.
-Added "Zero Secrets" for security.
-Defined Monorepo structure: `apps/web`, `apps/api`, `content/modules`.
+Updated `.specify/memory/constitution.md` to Version 1.1.0. Added "Bounded Knowledge" to restrict AI
+scope. Added "Zero Secrets" for security. Defined Monorepo structure: `apps/web`, `apps/api`,
+`content/modules`.
