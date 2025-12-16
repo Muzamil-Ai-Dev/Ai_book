@@ -1,55 +1,77 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+- Version change: 0.0.0 -> 1.0.0
+- Modified principles: Established 7 core principles based on Spec-Driven Development for AI Textbooks.
+- Added sections: Architecture & Technology Stack, Content Requirements.
+- Templates requiring updates: N/A (Initial Setup).
+-->
+# AI-Native Textbook for Physical AI & Humanoid Robotics Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Spec-Driven Everything
+Everything is spec-driven — infrastructure, writing, AI agents, and deployment. No ad-hoc development or manual configuration is permitted without an accompanying spec.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Content as First-Class Artifact
+Content creation (chapters) is treated as a first-class artifact. It must be explicitly specified, written (not placeholders), and verified like code.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Atomic & Composable Specs
+Specs are small, composable, and independently executable. No spec may mix concerns (e.g., infrastructure ≠ content ≠ AI ≠ auth). Each spec must do one thing well.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Verifiable Outputs
+Every spec must produce verifiable outputs. This includes compiled sites, passing tests, reachable APIs, or rendered chapters. If it cannot be verified, it is not done.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Incremental Deployability
+The system must be incrementally deployable at each major milestone. A working version of the book (even if partial) should be deployable after the platform spec, content spec, etc.
 
-### [PRINCIPLE_6_NAME]
+### VI. Pedagogical Clarity
+Prefer clarity and pedagogy over marketing language. Assume students know AI basics but are beginners in robotics. The goal is education, not hype.
 
+### VII. Canonical Formats
+Docusaurus Markdown is the canonical content format. All content generation and management must adhere to this standard.
 
-[PRINCIPLE__DESCRIPTION]
+## Architecture & Technology Stack
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Target Architecture:**
+The project is executed via sequential, isolated specs:
+1. **Book Platform:** Docusaurus setup.
+2. **Book Content:** Chapter writing and assets.
+3. **AI Retrieval:** RAG Chatbot (FastAPI, Qdrant, OpenAI).
+4. **Robotics Simulation:** Context and simulation integration.
+5. **User Auth:** Authentication & Personalization (optional/bonus).
+6. **Translation:** Urdu translation (optional/bonus).
+7. **Deployment:** GitHub Pages / Vercel.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**Required Stack:**
+- **Frontend/Static Site:** Docusaurus (React/Markdown).
+- **AI/Backend:** FastAPI, OpenAI Agents/ChatKit, Qdrant Cloud (Free Tier), Neon Serverless Postgres.
+- **Bonus:** better-auth for authentication.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Content Requirements
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**Mandatory Modules:**
+- Introduction to Physical AI & Embodied Intelligence
+- ROS 2 Fundamentals
+- Gazebo & Unity Simulation
+- NVIDIA Isaac Platform
+- Vision-Language-Action (VLA)
+- Humanoid Robotics & Locomotion
+- Conversational Robotics
+- Capstone Project Guidance
+
+**Chapter Structure:**
+Each chapter MUST include:
+- Learning objectives
+- Concept explanations
+- Diagrams or visual descriptions
+- Hands-on or thought exercises
+- Preparation for later modules
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+The constitution governs all future specs, plans, and tasks. It supersedes individual spec preferences.
+- **Amendments:** Must be documented via a version bump and rationale.
+- **Compliance:** All generated specs must reference these principles.
+- **Validation:** `/sp.specify` calls must align with the architecture defined here.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-16 | **Last Amended**: 2025-12-16
