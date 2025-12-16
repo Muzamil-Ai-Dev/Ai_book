@@ -43,7 +43,8 @@ _Goal: Maintainers can deploy updates to GitHub Pages._
 
 - [x] T017 [US2] Create GitHub Actions workflow `.github/workflows/deploy.yml` for auto-deployment
 
-- [ ] T017b [US2] Configure GitHub Repo Settings (Pages source set to GitHub Actions) to enable
+      workflow deployment
+- [x] T017b [US2] Configure GitHub Repo Settings (Pages source set to GitHub Actions) to enable
       workflow deployment
 - [x] T018 [US2] Test local build command `npm run build` in `apps/web`
 
