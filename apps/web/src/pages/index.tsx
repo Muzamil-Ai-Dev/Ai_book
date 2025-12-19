@@ -105,15 +105,18 @@ function ModulesPreview() {
         <Heading as="h2" className={styles.sectionTitle}>Course Modules</Heading>
         <div className={styles.modulesList}>
           {modules.map((m, idx) => (
-            <div key={idx} className={styles.moduleItem}>
-              <div className={styles.moduleInfo}>
-                <h3>Module {m.id}: {m.title}</h3>
-                <p>{m.desc}</p>
+            <Link key={idx} className={styles.moduleItem} to={`/modules/${m.slug}`}>
+              <div className={styles.moduleMain}>
+                <div className={styles.moduleBadge}>{m.id}</div>
+                <div className={styles.moduleInfo}>
+                  <h3>{m.title}</h3>
+                  <p>{m.desc}</p>
+                </div>
               </div>
-              <Link className="button button--outline button--primary" to={`/modules/${m.slug}`}>
-                View
-              </Link>
-            </div>
+              <div className={styles.moduleArrow}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -127,7 +130,7 @@ export default function Home(): React.JSX.Element {
     <Layout
       title={`${siteConfig.title}`}
       description="The definitive guide to Physical AI and Humanoid Robotics.">
-      <main>
+      <main className={styles.mainContainer}>
         <HeroSection />
         <FeaturesSection />
         <ModulesPreview />
