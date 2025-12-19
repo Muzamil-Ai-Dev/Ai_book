@@ -17,7 +17,12 @@ By the end of this chapter, you will be able to:
 4.  **Engineer Safety Prompts**: Construct system prompts that robustly prevent the robot from executing unsafe or hallucinated commands.
 5.  **Debug The Feedback Loop**: handle the "context window" problem and latency issues in real-time robotics.
 
-## Concept Explanations
+## Prerequisites
+
+- OpenAI API Key
+- Python (rclpy)
+
+## Core Concepts
 
 ### 1. The Cognitive Architecture
 
@@ -87,7 +92,7 @@ Imagine a relay race involving three runners: **Ear**, **Brain**, and **Muscle**
 
 If Brain decides to hallucinate and writes `Teleport("Mars")`, Muscle looks at the clipboard, sees no such button, and throws an error flag back to Brain.
 
-## Hands-on Exercises
+## Examples / Exercises
 
 ### Building the "Chat-Bot" Node
 
@@ -263,3 +268,13 @@ Standard LLMs don't know your house map.
     *   *LLM Output*: `navigate(2.0, 3.0)`.
 
 This keeps the LLM purely as a reasoning engine, while the "Knowledge" lives in your structured database.
+
+## Summary
+
+We have bridged the gap between language and motion. By treating the LLM as a **Cognitive Layer** that sits between perception and action, we can use **Function Calling** to convert vague intent into structured ROS 2 commands. We addressed the challenges of latency and safety, emphasizing that the robot's lower-level controllers must always act as a safety clamp on the LLM's output.
+
+## References
+
+- [OpenAI Function Calling Guide](https://platform.openai.com/docs/guides/function-calling)
+- [ROS 2 Python Client Library (rclpy)](https://docs.ros2.org/latest/api/rclpy/)
+- [SayCan: Do As I Can, Not Just As I Say](https://say-can.github.io/)

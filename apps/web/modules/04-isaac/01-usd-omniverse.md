@@ -16,7 +16,12 @@ By the end of this chapter, you will be able to:
 3.  **Understand "Layering"**, separating your robot definition from the world definition using USD references.
 4.  **Interface with ROS 2**, creating an Action Graph that bridges the simulation to your ROS topics.
 
-## Concept Explanations
+## Prerequisites
+
+- Isaac Sim installed
+- Python basic knowledge
+
+## Core Concepts
 
 ### 1. What is USD?
 
@@ -71,7 +76,7 @@ The final scene is just a tiny text file saying:
 
 This is extremely efficient for storage and streaming.
 
-## Hands-on Exercises
+## Examples / Exercises
 
 ### Procedural Table Generation
 
@@ -145,3 +150,13 @@ In our simulation script, we will:
 1.  Open `lab_room.usd`.
 2.  Reference `humanoid.usd` at `(0, 0, 0)`.
 3.  Add a `ROS2_Bridge` to connect the topics.
+
+## Summary
+
+In this chapter, we unpacked the power of **USD**, the layering system that allows for non-destructive world building. We explored the **Isaac Sim Python API**, which gives us God-mode control over the simulation, enabling procedural generation. We also introduced **Action Graphs**, the visual scripting language used to connect the physics engine to the ROS 2 network.
+
+## References
+
+- [NVIDIA Isaac Sim Documentation](https://docs.omniverse.nvidia.com/isaacsim/latest/index.html)
+- [Universal Scene Description (Pixar)](https://openusd.org/)
+- [Omniverse Python API](https://docs.omniverse.nvidia.com/kit/docs/kit-manual/latest/guide/python_api.html)

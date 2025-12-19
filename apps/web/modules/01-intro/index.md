@@ -1,13 +1,19 @@
 ---
 id: intro
 title: Introduction to Physical AI
+slug: /intro
 sidebar_label: Introduction
 description: Overview of Physical AI, the marriage of modern Intelligence with classical Robotics.
 ---
 
-# Introduction to Physical AI
+<header className="hero hero--primary" style={{padding: '3rem 2rem', marginBottom: '3rem', borderRadius: '8px'}}>
+  <div className="container">
+    <h1 className="hero__title">AI-Native Textbook</h1>
+    <p className="hero__subtitle">Physical AI & Humanoid Robotics</p>
+  </div>
+</header>
 
-## Learning Objectives
+## Learning Objectives {#learning-objectives}
 
 By the end of this chapter, you will be able to:
 

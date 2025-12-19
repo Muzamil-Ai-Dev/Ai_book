@@ -16,7 +16,12 @@ By the end of this chapter, you will be able to:
 3.  **Calculate Self-Attention**, performing the $Q \cdot K^T$ operation to see how a robot "attends" to a coffee cup in an image.
 4.  **Differentiate "Behavior Cloning" vs. "Offline RL"**, knowing the training objectives for VLA models.
 
-## Concept Explanations
+## Prerequisites
+
+- Understanding of Neural Networks
+- Python (NumPy)
+
+## Core Concepts
 
 ### 1. The Architecture of RT-1 (Robotics Transformer 1)
 
@@ -83,7 +88,7 @@ When the model generates a sentence, it looks like this:
 
 We interpret the first part as thought, and the second part as motion.
 
-## Hands-on Exercises
+## Examples / Exercises
 
 ### Implementing an Action Tokenizer
 
@@ -158,3 +163,13 @@ Then, we will write a script to:
 2.  Extract the image and the *next* joint state.
 3.  Tokenize the joint state.
 4.  Save as `(Image, TokenID)` pairs for training.
+
+## Summary
+
+Transformers have revolutionized robotics by allowing us to treat control as a sequence modeling problem. We explored the architecture of **RT-1** and **RT-2**, seeing how they tokenize continuous actions into discrete bins. We implemented a simple **Action Tokenizer** to understand this quantization and discussed how the **Self-Attention** mechanism enables a robot to utilize temporal history for dynamic tasks like catching a ball.
+
+## References
+
+- [RT-1: Robotics Transformer](https://robotics-transformer1.github.io/)
+- [RT-2: Vision-Language-Action Models](https://robotics-transformer2.github.io/)
+- [Attention Is All You Need](https://arxiv.org/abs/1706.03762)

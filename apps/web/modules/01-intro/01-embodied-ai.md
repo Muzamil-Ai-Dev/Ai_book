@@ -16,7 +16,11 @@ By the end of this chapter, you will be able to:
 3.  **Analyze the Anatomy of an Agent**, mapping the flow of data through Sensors (Exteroception/Proprioception), Compute, and Actuators.
 4.  **Implement a Basic Control Loop**, writing a Python simulation of a PID controller to understand the difference between logical AI and physical control.
 
-## Concept Explanations
+## Prerequisites
+
+- None (Introduction)
+
+## Core Concepts
 
 ### 1. The Great Paradox: Why Robots are "Dumb"
 
@@ -104,7 +108,7 @@ Imagine an iceberg floating in the ocean.
     *   AI is just now beginning to solve this.
     *   *Why?* It involves dealing with the chaotic, non-linear, high-dimensional physics of the real world.
 
-## Hands-on Exercises
+## Examples / Exercises
 
 ### Code Analysis: Symbolic AI vs. Control Loop
 
@@ -184,3 +188,13 @@ For our Capstone Project, we will simulate a humanoid robot. Let's define its sp
     *   **Intelligence**: A VLA model (like a fine-tuned OpenVLA) interpreting the camera feed.
 
 In the next chapter, we will set up the "Nervous System" of our robot: **ROS 2**.
+
+## Summary
+
+Physical AI is the discipline of giving embodied agents the ability to perceive, reason, and act in unstructured environments. We explored **Moravec's Paradox**, showing that low-level sensorimotor skills are harder to replicate than high-level logic. We defined the **three eras of robotics** (Deterministic, Probabilistic, Learned) and dissected the **anatomy of an agent** (Body, Senses, Brain), culminating in the understanding of the strict real-time requirements of control loops.
+
+## References
+
+- [Moravec's Paradox (Wikipedia)](https://en.wikipedia.org/wiki/Moravec%27s_paradox)
+- [Rodney Brooks: "Elephants Don't Play Chess"](https://people.csail.mit.edu/brooks/papers/elephants.pdf)
+- [The Bitter Lesson (Rich Sutton)](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)

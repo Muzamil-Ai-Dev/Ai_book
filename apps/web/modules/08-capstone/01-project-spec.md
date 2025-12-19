@@ -15,7 +15,11 @@ By the end of this module, you will be able to:
 2.  **Structure a Robotics Project**, using a professional Phased approach (Design -> Sim -> MVP -> Integration).
 3.  **Execute a Capstone**, integrating ROS 2, AI, and Simulation into a unified system.
 
-## Concept Explanations
+## Prerequisites
+
+- Completed Modules 1-7
+
+## Core Concepts
 
 ### 1. The Engineering Lifecycle
 
@@ -48,7 +52,7 @@ A "Vertical Slice" is a thin wedge containing all 4 layers. It is a complete bit
 
 **Your Capstone is that wedge.**
 
-## Hands-on Exercises
+## Examples / Exercises
 
 ### Exercise 1: The MVP (Week 3)
 
@@ -87,3 +91,12 @@ Record a screen capture showing RViz, Gazebo, and the Terminal. Narrate the vide
 *   **"Navigation is Stuck"**: Check costmaps in RViz.
 
 Good luck.
+
+## Summary
+
+The Capstone Project is the culmination of your learning journey. It requires you to adopt the mindset of a **Systems Integrator**, building a robust **Vertical Slice** rather than a fragile feature list. By strictly following the Phased lifecycle (Definition -> Simulation -> Integration), you will produce a verifiable artifact that demonstrates your mastery of Physical AI.
+
+## References
+
+- [IEEE Guide to the Systems Engineering Body of Knowledge (SEBoK)](https://sebokwiki.org/)
+- [ROS 2 Design Patterns](https://design.ros2.org/)
