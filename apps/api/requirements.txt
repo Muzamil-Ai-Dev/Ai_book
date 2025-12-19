@@ -1,0 +1,11 @@
+fastapi
+openai
+qdrant-client
+pydantic
+python-dotenv
+uvicorn
+langchain
+pytest
+httpx
+google-generativeai
+cohere

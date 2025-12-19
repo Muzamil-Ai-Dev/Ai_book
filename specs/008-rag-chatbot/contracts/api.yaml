@@ -1,0 +1,83 @@
+openapi: 3.0.0
+info:
+  title: Grounded RAG Chatbot API
+  version: 1.0.0
+  description: API for ingesting textbook content and querying the grounded RAG chatbot.
+
+paths:
+  /ingest:
+    post:
+      summary: Ingest textbook content
+      description: Reads Markdown files from content/modules/, chunks them, and updates the vector database.
+      responses:
+        '200':
+          description: Ingestion successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  chunks_processed:
+                    type: integer
+                  modules_synced:
+                    type: array
+                    items:
+                      type: string
+
+  /query:
+    post:
+      summary: Query the grounded chatbot
+      description: Accepts a user question and returns a response grounded in the textbook.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - question
+              properties:
+                question:
+                  type: string
+                session_id:
+                  type: string
+                  description: Optional session ID for multi-turn conversation.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+
+components:
+  schemas:
+    QueryResponse:
+      type: object
+      properties:
+        answer:
+          type: string
+          description: The grounded answer or a refusal message.
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SourceMetadata'
+        refusal_reason:
+          type: string
+          nullable: true
+        session_id:
+          type: string
+
+    SourceMetadata:
+      type: object
+      properties:
+        module:
+          type: string
+        chapter:
+          type: string
+        heading:
+          type: string
+        path:
+          type: string
