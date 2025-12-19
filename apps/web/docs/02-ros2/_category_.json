@@ -1,0 +1,8 @@
+{
+  "label": "ROS 2 Fundamentals",
+  "position": 2,
+  "link": {
+    "type": "doc",
+    "id": "ros2-intro"
+  }
+}
