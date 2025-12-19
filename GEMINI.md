@@ -247,3 +247,12 @@ deployment) into one ADR when appropriate.
 
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and
 architecture principles.
+
+## Active Technologies
+- Markdown / MDX (Docusaurus compatible) + Docusaurus 3.x (already set up in `001-book-platform`) (002-book-content)
+- Git-based file storage (local repository) (002-book-content)
+
+## Recent Changes
+- 003-expand-content: Expanded Modules 01-06 (Intro, ROS 2, Sim, Isaac, VLA, Humanoid) to full text-only chapters (approx 36k words).
+- 003-expand-content: Synced `content/modules` to `apps/web/docs` to resolve user visibility issue.
+- 002-book-content: Added Markdown / MDX (Docusaurus compatible) + Docusaurus 3.x (already set up in `001-book-platform`)

@@ -1,0 +1,8 @@
+{
+  "label": "Vision-Language-Action",
+  "position": 5,
+  "link": {
+    "type": "doc",
+    "id": "vla-intro"
+  }
+}
