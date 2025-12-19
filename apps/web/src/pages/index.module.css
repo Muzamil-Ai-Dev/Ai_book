@@ -1,23 +1,115 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
-.heroBanner {
-  padding: 4rem 0;
+.hero {
+  padding: 8rem 0;
   text-align: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.heroTitle {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, #00f2ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
 }
 
-.buttons {
+.heroSubtitle {
+  font-size: 1.5rem;
+  color: var(--text-color-secondary);
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 4rem;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: var(--reading-width-max);
+  margin: 0 auto;
+}
+
+.featureCard {
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.featureIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.featureTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.featureDescription {
+  color: var(--text-color-secondary);
+  line-height: 1.6;
+}
+
+.modulesList {
+  max-width: var(--reading-width-max);
+  margin: 0 auto;
+}
+
+.moduleItem {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  transition: background 0.2s ease;
+}
+
+.moduleItem:hover {
+  background: rgba(0, 209, 178, 0.05);
+}
+
+.moduleInfo h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.moduleInfo p {
+  margin: 0.25rem 0 0;
+  color: var(--text-color-secondary);
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: 4rem 1.5rem;
+  }
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+  .ctaButtons {
+    flex-direction: column;
+  }
 }

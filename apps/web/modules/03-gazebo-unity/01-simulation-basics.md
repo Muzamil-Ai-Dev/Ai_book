@@ -16,7 +16,12 @@ By the end of this chapter, you will be able to:
 3.  **Optimize Meshes**, understanding why visual meshes (high-poly) must be separate from collision meshes (primitives).
 4.  **Debug Physics Instability**, identifying the "Exploding Robot" phenomenon caused by low solver iteration counts or bad inertia matrices.
 
-## Concept Explanations
+## Prerequisites
+
+- ROS 2 installed
+- XML Editor
+
+## Core Concepts
 
 ### 1. The Language of Shapes: URDF vs. SDF
 
@@ -93,7 +98,7 @@ Imagine a "Spring-Damper" system (like a shock absorber).
 2.  **Increase Solver Iterations**: Tell the physics engine (PhysX) to think harder per step.
 3.  **Sanity Check Inertia**: Do not have a 1kg arm attached to a 0.001g finger. The mass ratio causes numerical errors.
 
-## Hands-on Exercises
+## Examples / Exercises
 
 ### Writing a Clean URDF
 
@@ -171,3 +176,13 @@ Create this folder structure in your mind (or filesystem):
     `collision/` (Low res .STL or Hull files)
 
 Separating data this way keeps the project sane as the robot grows from 2 links to 20 links.
+
+## Summary
+
+Simulation is more than just visualization; it is a mathematical approximation of reality. We learned that **URDF** uses a tree structure to describe robot links, each composed of a **Visual** mesh (for eyes), a **Collision** mesh (for physics), and an **Inertia** matrix (for dynamics). We also touched on the numerical instability of physics solvers (the exploding robot) and the importance of simplifying collision geometry for performance.
+
+## References
+
+- [ROS 2 URDF Tutorials](https://docs.ros.org/en/humble/Tutorials/Intermediate/URDF/URDF-Main.html)
+- [Gazebo SDF Format](http://sdformat.org/)
+- [Rigid Body Dynamics Algorithms (Featherstone)](https://royfeatherstone.org/spatial/)

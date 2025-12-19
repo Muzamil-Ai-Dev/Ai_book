@@ -16,7 +16,12 @@ By the end of this chapter, you will be able to:
 3.  **Simulate a Step**, writing a Python script to predict the Center of Mass trajectory.
 4.  **Contrast ZMP vs. MPC**, understanding why modern robots (like Atlas) use Model Predictive Control to survive pushes.
 
-## Concept Explanations
+## Prerequisites
+
+- Calculus (Differential Equations)
+- Python (Matplotlib)
+
+## Core Concepts
 
 ### 1. The Linear Inverted Pendulum Mode (LIPM)
 
@@ -73,7 +78,7 @@ If the pendulum starts falling forward, you must accelerate the cart **forward**
 If you accelerate too much, the pendulum falls backward.
 You are constantly juggling the pendulum by moving the cart.
 
-## Hands-on Exercises
+## Examples / Exercises
 
 ### Simulating LIPM in Python
 
@@ -139,3 +144,12 @@ Since we are using Reinforcement Learning (RL) instead of analytical ZMP, we nee
 3.  **Energy Penalty**: `reward -= torque**2`. (Don't flail).
 
 If we tune these right, the Neural Network effectively "learns" the LIPM equation implicitly.
+
+## Summary
+
+Walking is the art of controlled falling. We simplified the physics using the **Linear Inverted Pendulum Mode (LIPM)**, which models the center of mass as a point mass. We defined the **Zero Moment Point (ZMP)** as the stability criterion and discussed how **Model Predictive Control (MPC)** allows robots to react to disturbances. Finally, we connected this classical theory to modern RL by framing stability as a reward function.
+
+## References
+
+- [Kajita et al.: "The 3D Linear Inverted Pendulum Mode"](https://ieeexplore.ieee.org/document/963598)
+- [MIT 6.832: Underactuated Robotics (Russ Tedrake)](http://underactuated.mit.edu/)

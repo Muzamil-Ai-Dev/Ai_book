@@ -45,6 +45,10 @@ const config: Config = {
         'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
       crossorigin: 'anonymous',
     },
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap',
+      type: 'text/css',
+    },
   ],
 
   presets: [
@@ -53,7 +57,7 @@ const config: Config = {
       {
         docs: {
           path: 'modules',
-          routeBasePath: 'modules', // Revert to default 'docs'
+          routeBasePath: '/modules', // Serve docs at /modules
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -84,10 +88,12 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'moduleSidebar',
           position: 'left',
           label: 'Modules',
         },
+        { to: '/glossary', label: 'Glossary', position: 'left' },
+        { to: '/notation', label: 'Notation', position: 'left' },
         {
           href: 'https://github.com/Muzamil-Ai-Dev/Ai_book',
           label: 'GitHub',
@@ -99,16 +105,20 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Learn',
           items: [
-            {
-              label: 'Modules',
-              to: '/modules/intro',
-            },
+            { label: 'Introduction', to: '/modules/intro' },
           ],
         },
         {
-          title: 'More',
+          title: 'Reference',
+          items: [
+            { label: 'Glossary', to: '/glossary' },
+            { label: 'Notation', to: '/notation' },
+          ],
+        },
+        {
+          title: 'Community',
           items: [
             {
               label: 'GitHub',
@@ -117,7 +127,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Muzamil-Ai-Dev. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} AI-Native Textbook. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

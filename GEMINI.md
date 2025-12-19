@@ -254,5 +254,5 @@ architecture principles.
 
 ## Recent Changes
 - 003-expand-content: Expanded Modules 01-06 (Intro, ROS 2, Sim, Isaac, VLA, Humanoid) to full text-only chapters (approx 36k words).
-- 003-expand-content: Synced `content/modules` to `apps/web/docs` to resolve user visibility issue.
+- 003-expand-content: Content moved to `apps/web/modules` (renamed from `docs`). Route base path is `/modules/`.
 - 002-book-content: Added Markdown / MDX (Docusaurus compatible) + Docusaurus 3.x (already set up in `001-book-platform`)

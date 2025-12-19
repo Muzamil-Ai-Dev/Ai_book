@@ -16,7 +16,12 @@ By the end of this chapter, you will be able to:
 3.  **Implement Managed Nodes (Lifecycle Nodes)** to create deterministic startup sequences.
 4.  **Write Polyglot Code**: Create a C++ Publisher that talks to a Python Subscriber.
 
-## Concept Explanations
+## Prerequisites
+
+- Basic Python or C++ knowledge
+- ROS 2 installed (Humble or Jazzy)
+
+## Core Concepts
 
 ### 1. The Hidden Stack: What happens when you `publish()`?
 
@@ -80,7 +85,7 @@ Imagine the data flowing down:
 *   **Best Effort (Magazine)**: The publisher sends issues monthly. If the postman loses the January issue, the publisher does *not* resend it. You just get the February issue. This is fine; you want current news.
 *   **Reliable (Registered Letter)**: The publisher sends a contract. They require a signature. If the postman loses it, they send it again and again until you sign. You cannot proceed until you get it.
 
-## Hands-on Exercises
+## Examples / Exercises
 
 ### Exercise 1: The Polyglot Talk
 
@@ -188,3 +193,13 @@ Organizing topics is like organizing a file system. For our Humanoid, we will us
 *   `/robot_id/debug/log` (Reliable)
 
 This structure ensures that if we have two robots, we just change `robot_id` to `robot_1` and `robot_2`, and they never cross wires.
+
+## Summary
+
+In this chapter, we explored the hidden depths of ROS 2. We learned that **Nodes** are the computational units that can act as Publishers or Subscribers. **Topics** are the named pipes they use to exchange data. Crucially, the **RMW (Middleware)** layer allows ROS 2 to run on top of industrial-grade **DDS**, giving us powerful **QoS** controls for reliability and durability. Finally, we saw how **Lifecycle Nodes** provide a managed state machine for deterministic startup.
+
+## References
+
+- [ROS 2 Documentation: Nodes](https://docs.ros.org/en/humble/Concepts/Basic/About-Nodes.html)
+- [ROS 2 Documentation: Topics](https://docs.ros.org/en/humble/Concepts/Basic/About-Topics.html)
+- [DDS Foundation](https://www.dds-foundation.org/)
