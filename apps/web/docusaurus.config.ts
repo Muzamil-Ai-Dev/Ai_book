@@ -52,12 +52,12 @@ const config: Config = {
       'classic',
       {
         docs: {
-          path: 'docs',
-          routeBasePath: 'docs', // Revert to default 'docs'
+          path: 'modules',
+          routeBasePath: 'modules', // Revert to default 'docs'
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/Muzamil-Ai-Dev/Ai_book/tree/master/apps/web/docs/',
+          editUrl: 'https://github.com/Muzamil-Ai-Dev/Ai_book/tree/master/apps/web/modules/',
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
@@ -103,7 +103,7 @@ const config: Config = {
           items: [
             {
               label: 'Modules',
-              to: '/docs/intro',
+              to: '/modules/intro',
             },
           ],
         },
