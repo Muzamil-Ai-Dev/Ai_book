@@ -44,7 +44,7 @@ const Chat: React.FC = () => {
 
       const API_URL = process.env.NODE_ENV === 'development' 
         ? 'http://127.0.0.1:8000' 
-        : 'https://Muzamil-Ai-Dev-Ai-book.hf.space'; // Replace with your actual HF Space Direct URL if different
+        : 'https://muzamil-ai-dev-ai-book.hf.space'; // Replace with your actual HF Space Direct URL if different
 
   
 
