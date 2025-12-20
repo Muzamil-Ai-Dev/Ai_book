@@ -49,7 +49,7 @@ class ChatService:
 
             # Create chat session
             chat = self.client.chats.create(
-                model="gemini-1.5-flash",
+                model="gemini-2.0-flash-exp",
                 history=chat_history,
                 config=genai.types.GenerateContentConfig(
                     system_instruction=self.system_prompt
