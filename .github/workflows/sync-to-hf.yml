@@ -20,15 +20,32 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           
-          # Install and configure LFS
-          git lfs install
-          git lfs track "*.png" "*.jpg" "*.jpeg" "*.svg" "*.ico"
-          git add .gitattributes
-          git commit -m "chore: track binary files with LFS" || true
+          # Create a clean deployment package
+          mkdir deploy_package
+          cp -r apps/api deploy_package/apps
+          # Move API contents to root of deploy_package for simpler structure? 
+          # No, the Dockerfile expects apps/api structure.
+          # Let's keep structure but only copy necessary files.
+          
+          # Copy Root files
+          cp Dockerfile deploy_package/
+          cp README.md deploy_package/
+          
+          # Copy apps/api (ensure parent dir exists if using cp -r directly on apps/api to apps/)
+          # Actually, 'cp -r apps/api deploy_package/apps' might need 'mkdir -p deploy_package/apps'
+          mkdir -p deploy_package/apps
+          cp -r apps/api deploy_package/apps/
+          
+          # Initialize new repo to kill history
+          cd deploy_package
+          git init
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add .
+          git commit -m "deploy: clean sync to HF"
           
           # Add Hugging Face remote
-          # REPLACE 'YOUR_HF_USERNAME' and 'YOUR_SPACE_NAME' below!
           git remote add space https://oauth2:$HF_TOKEN@huggingface.co/spaces/Muzamil-Ai-Dev/Ai_book
           
-          # Push to Hugging Face
+          # Force push new history
           git push --force space master:main
