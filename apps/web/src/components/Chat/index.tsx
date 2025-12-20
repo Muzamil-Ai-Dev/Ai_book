@@ -43,10 +43,8 @@ const Chat: React.FC = () => {
       // Default to local, but easy to swap for production URL
 
       const API_URL = process.env.NODE_ENV === 'development' 
-
         ? 'http://127.0.0.1:8000' 
-
-        : 'https://your-backend-api-url.com'; // You will update this after deploying backend
+        : 'https://Muzamil-Ai-Dev-Ai-book.hf.space'; // Replace with your actual HF Space Direct URL if different
 
   
 
