@@ -1,5 +1,5 @@
 import os
-import cohere
+import google.generativeai as genai
 from src.services.retrieval import RetrievalService
 from src.utils.grounding import GroundingClient
 from src.utils.logging import logger
@@ -11,7 +11,9 @@ class ChatService:
     def __init__(self):
         self.retrieval_service = RetrievalService()
         self.grounding_client = GroundingClient()
-        self.co = cohere.Client(os.getenv("COHERE_API_KEY"))
+        
+        # Configure Gemini
+        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
         self.system_prompt = (
             "You are an AI assistant for the AI-Native Textbook for Physical AI & Humanoid Robotics. "
             "Your goal is to answer questions strictly grounded in the provided textbook content. "
@@ -21,30 +23,37 @@ class ChatService:
             "4. Do not use external technical knowledge or speculate. "
             "5. Be concise and educational."
         )
+        self.model = genai.GenerativeModel(
+            model_name="gemini-1.5-flash",
+            system_instruction=self.system_prompt
+        )
 
     async def generate_response(self, question: str, session_id: str = "default"):
         # 0. Get session history
         session = session_store.get_or_create_session(session_id)
         
-        # 1. Retrieve with threshold
+        # 1. Retrieve with threshold (using RetrievalService which uses Cohere)
         chunks = self.retrieval_service.retrieve_relevant_chunks(question, threshold=0.5)
         
         # If no chunks, we still call the LLM to allow for greetings/refusals
         context_text = "\n\n".join([f"Source: {c.metadata.path}\nContent: {c.text}" for c in chunks]) if chunks else "No relevant textbook content found."
         
-        # 3. Generate
+        # 3. Generate with Gemini
         try:
-            # Format history for Cohere
-            chat_history = []
+            # Format history for Gemini
+            gemini_history = []
             for turn in session.history:
-                chat_history.append({"role": "USER" if turn.role == "user" else "CHATBOT", "message": turn.content})
+                gemini_history.append({
+                    "role": "user" if turn.role == "user" else "model",
+                    "parts": [turn.content]
+                })
 
-            response = self.co.chat(
-                message=question,
-                model="command-r-08-2024",
-                preamble=self.system_prompt + f"\n\nTEXTBOOK CONTEXT:\n{context_text}",
-                chat_history=chat_history
-            )
+            # Start a chat session with history
+            chat = self.model.start_chat(history=gemini_history)
+            
+            # Send message with context
+            prompt = f"TEXTBOOK CONTEXT:\n{context_text}\n\nUSER QUESTION: {question}"
+            response = chat.send_message(prompt)
             
             answer = response.text
             
@@ -65,9 +74,6 @@ class ChatService:
             sources = [c.metadata.model_dump() for c in chunks] if chunks else []
             
             return {"answer": answer, "sources": sources, "session_id": session_id}
-        except Exception as e:
-            logger.error(f"Generation failed: {e}")
-            return {"answer": "An error occurred while generating the response.", "sources": []}
         except Exception as e:
             logger.error(f"Generation failed: {e}")
             return {"answer": "An error occurred while generating the response.", "sources": []}
