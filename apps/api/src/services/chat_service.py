@@ -24,7 +24,7 @@ class ChatService:
             "5. Be concise and educational."
         )
         self.model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash",
+            model_name="gemini-1.5-flash-001",
             system_instruction=self.system_prompt
         )
 
