@@ -20,9 +20,15 @@ jobs:
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           
+          # Remove frontend files (images) that cause rejection
+          # The API space only needs apps/api
+          rm -rf apps/web
+          git add .
+          git commit -m "chore: temporary cleanup for HF sync" --allow-empty
+          
           # Add Hugging Face remote
           # REPLACE 'YOUR_HF_USERNAME' and 'YOUR_SPACE_NAME' below!
           git remote add space https://oauth2:$HF_TOKEN@huggingface.co/spaces/Muzamil-Ai-Dev/Ai_book
           
           # Push to Hugging Face
-          git push --force space master:main
+          git push --force space HEAD:main
