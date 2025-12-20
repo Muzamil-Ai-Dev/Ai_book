@@ -213,7 +213,10 @@ body {
 
 .navbar__logo {
   transition: transform 0.2s ease;
-  filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.2));
+  filter: drop-shadow(0 0 8px var(--ifm-color-primary)) brightness(1.1);
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .navbar__logo:hover {

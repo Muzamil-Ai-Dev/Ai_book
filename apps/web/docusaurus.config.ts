@@ -83,7 +83,7 @@ const config: Config = {
       title: 'Physical AI Textbook',
       logo: {
         alt: 'AI Robotics Textbook Logo',
-        src: 'img/logo.svg',
+        src: 'img/logo.png',
       },
       items: [
         {
