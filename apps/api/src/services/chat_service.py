@@ -1,5 +1,5 @@
 import os
-from google import genai
+from openai import OpenAI
 from src.services.retrieval import RetrievalService
 from src.utils.grounding import GroundingClient
 from src.utils.logging import logger
@@ -12,8 +12,12 @@ class ChatService:
         self.retrieval_service = RetrievalService()
         self.grounding_client = GroundingClient()
         
-        # Configure Gemini (New SDK)
-        self.client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+        # Configure Groq (OpenAI Compatible)
+        # Using the API key from GEMINI_API_KEY env var as requested by user
+        self.client = OpenAI(
+            api_key=os.getenv("GEMINI_API_KEY"),
+            base_url="https://api.groq.com/openai/v1"
+        )
         self.system_prompt = (
             "You are an AI assistant for the AI-Native Textbook for Physical AI & Humanoid Robotics. "
             "Your goal is to answer questions strictly grounded in the provided textbook content. "
@@ -34,33 +38,28 @@ class ChatService:
         # If no chunks, we still call the LLM to allow for greetings/refusals
         context_text = "\n\n".join([f"Source: {c.metadata.path}\nContent: {c.text}" for c in chunks]) if chunks else "No relevant textbook content found."
         
-        # 3. Generate with Gemini (New SDK)
+        # 3. Generate with Groq (OpenAI Compatible)
         try:
-            # Format history
-            # The new SDK handles history via chats or direct content generation.
-            # For simplicity and robustness with one-off calls, we'll construct the full prompt context
-            # or use a chat session if preferred. Let's use chat session for proper history.
+            # Format history for OpenAI format
+            messages = [{"role": "system", "content": self.system_prompt}]
             
-            chat_history = []
             for turn in session.history:
-                chat_history.append(
-                    {"role": "user" if turn.role == "user" else "model", "parts": [{"text": turn.content}]}
+                messages.append(
+                    {"role": "user" if turn.role == "user" else "assistant", "content": turn.content}
                 )
 
-            # Create chat session
-            chat = self.client.chats.create(
-                model="gemini-1.5-flash-002",
-                history=chat_history,
-                config=genai.types.GenerateContentConfig(
-                    system_instruction=self.system_prompt
-                )
+            # Add current context and prompt
+            prompt = f"TEXTBOOK CONTEXT:\n{context_text}\n\nUSER QUESTION: {question}"
+            messages.append({"role": "user", "content": prompt})
+
+            # Create completion
+            response = self.client.chat.completions.create(
+                model="openai/gpt-oss-20b",
+                messages=messages,
+                temperature=0.0 # Keep it deterministic for RAG
             )
             
-            # Send message
-            prompt = f"TEXTBOOK CONTEXT:\n{context_text}\n\nUSER QUESTION: {question}"
-            response = chat.send_message(prompt)
-            
-            answer = response.text
+            answer = response.choices[0].message.content
             
             # 4. Final Grounding Verification (only if chunks were found)
             if chunks:
@@ -81,4 +80,4 @@ class ChatService:
             return {"answer": answer, "sources": sources, "session_id": session_id}
         except Exception as e:
             logger.error(f"Generation failed: {e}")
-            return {"answer": "An error occurred while generating the response.", "sources": []}
+            return {"answer": f"An error occurred while generating the response: {str(e)}", "sources": []}
