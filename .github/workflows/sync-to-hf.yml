@@ -32,9 +32,12 @@ jobs:
           cp README.md deploy_package/
           
           # Copy apps/api (ensure parent dir exists if using cp -r directly on apps/api to apps/)
-          # Actually, 'cp -r apps/api deploy_package/apps' might need 'mkdir -p deploy_package/apps'
           mkdir -p deploy_package/apps
           cp -r apps/api deploy_package/apps/
+          
+          # Copy Book Content (apps/web/modules) so ingestion works
+          mkdir -p deploy_package/apps/web
+          cp -r apps/web/modules deploy_package/apps/web/
           
           # Initialize new repo to kill history
           cd deploy_package
