@@ -11,8 +11,8 @@ The "AI-Native Textbook" features a RAG-based chatbot. To enable this on the pub
 - **Tier:** Free (CPU Basic)
 - **Port:** 7860 (Standard for HF Spaces)
 - **Environment Variables:**
-  - `OPENAI_API_KEY`: Required
   - `GEMINI_API_KEY`: Required
+  - `COHERE_API_KEY`: Required
   - `QDRANT_URL`: Required
   - `QDRANT_API_KEY`: Required
 

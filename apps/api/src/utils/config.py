@@ -8,7 +8,6 @@ def validate_config():
     load_dotenv()
     
     required_vars = [
-        "OPENAI_API_KEY",
         "GEMINI_API_KEY",
         "COHERE_API_KEY",
         "QDRANT_URL",

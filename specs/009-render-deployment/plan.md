@@ -23,5 +23,5 @@
     1.  Push changes to GitHub.
     2.  Create new Space on Hugging Face -> Select "Docker".
     3.  Connect the GitHub repository.
-    4.  Add Secrets in Settings -> Repository Secrets (`OPENAI_API_KEY`, etc.).
+    4.  Add Secrets in Settings -> Repository Secrets (`GEMINI_API_KEY`, `COHERE_API_KEY`, `QDRANT_URL`, `QDRANT_API_KEY`).
     5.  Copy the Space URL (Embed URL or Direct URL).
